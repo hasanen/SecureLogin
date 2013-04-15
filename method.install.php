@@ -42,8 +42,27 @@ if (!isset($gCms)) exit;
 		// permissions
 		$this->CreatePermission('SecureLogin management','SecureLogin management');
 
+//function for nicer table adding
+function addTable($db, $tableName, $flds){
+	$dict = NewDataDictionary($db);
+	$taboptarray = array('mysql' => 'TYPE=MyISAM');
+	$sqlarray = $dict->CreateTableSQL(sprintf("%smodule_securelogin_%s",cms_db_prefix(), $tableName), 
+		$flds, $taboptarray);
+	$dict->ExecuteSQLArray($sqlarray);
+	$db->CreateSequence(sprintf("%smodule_securelogin_%s_seq",cms_db_prefix(), $tableName));
+}
+
+$db = $this->GetDb();
+
+
+addTable($db, "whitelist", " 
+		id I KEY,
+		username C(25),
+		ip C(15),
+		for_all I DEFAULT 0,
+		validateWithKey C(32),
+		validated I DEFAULT 0,
+		added TS");
 
 		// put mention into the admin log
 		$this->Audit( 0, $this->Lang('friendlyname'), $this->Lang('installed',$this->GetVersion()));
-		
-?>
