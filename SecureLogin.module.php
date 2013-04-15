@@ -335,7 +335,7 @@ class SecureLogin extends CMSModule
 
 	function secureLogin(){
 		if($this->_secureLogin == null){
-			$this->_secureLogin = new pieceofcode\SecureLogin($this->GetDb());
+			$this->_secureLogin = new pieceofcode\SecureLogin($this->GetDb(), cms_db_prefix() .'module_securelogin');
 		}
 		return $this->_secureLogin;
 	}
