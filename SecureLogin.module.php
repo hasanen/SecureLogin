@@ -37,6 +37,7 @@
 # - Check out the forums at http://forums.cmsmadesimple.org
 # - Chat with developers on the #cms IRC channel
 #-------------------------------------------------------------------------
+require_once('lib/SecureLogin.class.php');
 class SecureLogin extends CMSModule
 {
 
@@ -324,6 +325,19 @@ class SecureLogin extends CMSModule
 	function UninstallPreMessage()
 	{
 		return $this->Lang('really_uninstall');
+	}
+
+	function SetParameters() {
+		$this->addEventHandler('Core','LoginPost',false);
+	}
+
+	private $_secureLogin;
+
+	function secureLogin(){
+		if($this->_secureLogin == null){
+			$this->_secureLogin = new pieceofcode\SecureLogin($this->GetDb());
+		}
+		return $this->_secureLogin;
 	}
 	
 }
