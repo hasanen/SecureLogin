@@ -28,8 +28,17 @@ if (!isset($gCms)) exit;
 		// remove the permissions
 		$this->RemovePermission('SecureLogin management');
 
-		
+		function dropTable($db, $tableName){
+			$dict = NewDataDictionary($db);
+			$taboptarray = array('mysql' => 'TYPE=MyISAM');
+			$sqlarray = $dict->DropTableSQL(sprintf("%smodule_securelogin_%s",cms_db_prefix(), $tableName));
+			$dict->ExecuteSQLArray($sqlarray);
+			$db->DropSequence(sprintf("%smodule_securelogin_%s_seq",cms_db_prefix(), $tableName));
+		}
+
+		$db = $this->GetDb();
+
+		dropTable($db, "whitelist");
+
 		// put mention into the admin log
 		$this->Audit( 0, $this->Lang('friendlyname'), $this->Lang('uninstalled'));
-
-?>
