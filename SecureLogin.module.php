@@ -54,13 +54,13 @@ class SecureLogin extends CMSModule
 	   component).
 	   
 	   See the note on localization at the top of this file.
-	  ---------------------------------------------------------*/
-	function GetFriendlyName()
-	{
-		return $this->Lang('friendlyname');
-	}
+	   ---------------------------------------------------------*/
+	   function GetFriendlyName()
+	   {
+	   	return $this->Lang('friendlyname');
+	   }
 
-	
+
 	/*---------------------------------------------------------
 	   GetVersion()
 	   This can return any string, preferably a number or
@@ -69,11 +69,11 @@ class SecureLogin extends CMSModule
 	   the installed version of the module is current, and
 	   the module will use it to figure out how to upgrade
 	   itself if requested.	   
-	  ---------------------------------------------------------*/
-	function GetVersion()
-	{
-		return '1.0';
-	}
+	   ---------------------------------------------------------*/
+	   function GetVersion()
+	   {
+	   	return '1.0';
+	   }
 
 	/*---------------------------------------------------------
 	   GetHelp()
@@ -82,21 +82,21 @@ class SecureLogin extends CMSModule
 	   use the module.
 	   
 	   See the note on localization at the top of this file.
-	  ---------------------------------------------------------*/
-	function GetHelp()
-	{
-		return $this->Lang('help');
-	}
+	   ---------------------------------------------------------*/
+	   function GetHelp()
+	   {
+	   	return $this->Lang('help');
+	   }
 
 	/*---------------------------------------------------------
 	   GetAuthor()
 	   This returns a string that is presented in the Module
 	   Admin if you click on the "About" link.
-	  ---------------------------------------------------------*/
-	function GetAuthor()
-	{
-		return 'Joni Hasanen';
-	}
+	   ---------------------------------------------------------*/
+	   function GetAuthor()
+	   {
+	   	return 'Joni Hasanen';
+	   }
 
 	/*---------------------------------------------------------
 	   GetAuthorEmail()
@@ -104,11 +104,11 @@ class SecureLogin extends CMSModule
 	   Admin if you click on the "About" link. It helps users
 	   of your module get in touch with you to send bug reports,
 	   questions, cases of beer, and/or large sums of money.
-	  ---------------------------------------------------------*/
-	function GetAuthorEmail()
-	{
-		return 'joni@hasanen.net';
-	}
+	   ---------------------------------------------------------*/
+	   function GetAuthorEmail()
+	   {
+	   	return 'joni@hasanen.net';
+	   }
 
 	/*---------------------------------------------------------
 	   GetChangeLog()
@@ -116,11 +116,11 @@ class SecureLogin extends CMSModule
 	   Admin if you click on the About link. It helps users
 	   figure out what's changed between releases.
 	   See the note on localization at the top of this file.
-	  ---------------------------------------------------------*/
-	function GetChangeLog()
-	{
-		return $this->Lang('changelog');
-	}
+	   ---------------------------------------------------------*/
+	   function GetChangeLog()
+	   {
+	   	return $this->Lang('changelog');
+	   }
 
 	/*---------------------------------------------------------
 	   IsPluginModule()
@@ -131,11 +131,11 @@ class SecureLogin extends CMSModule
 	   
 	   If your module does not get included in pages or
 	   templates, return "false" here.
-	  ---------------------------------------------------------*/
-	function IsPluginModule()
-	{
-		return true;
-	}
+	   ---------------------------------------------------------*/
+	   function IsPluginModule()
+	   {
+	   	return true;
+	   }
 
 	/*---------------------------------------------------------
 	   HasAdmin()
@@ -144,11 +144,11 @@ class SecureLogin extends CMSModule
 	   the site. For the rest of these comments, I'll be calling
 	   the admin part of your module the "Admin Panel" for
 	   want of a better term.
-	  ---------------------------------------------------------*/
-	function HasAdmin()
-	{
-		return true;
-	}
+	   ---------------------------------------------------------*/
+	   function HasAdmin()
+	   {
+	   	return true;
+	   }
 
 
 	/*---------------------------------------------------------
@@ -171,11 +171,11 @@ class SecureLogin extends CMSModule
 	   viewsite, or logout sections, it will show up in the
 	   menus, but will not be visible in any top-level
 	   section pages.
-	  ---------------------------------------------------------*/
-	function GetAdminSection()
-	{
-		return 'siteadmin';
-	}
+	   ---------------------------------------------------------*/
+	   function GetAdminSection()
+	   {
+	   	return 'siteadmin';
+	   }
 
 
 	/*---------------------------------------------------------
@@ -183,11 +183,11 @@ class SecureLogin extends CMSModule
 	   If your module does have an Admin Panel, you
 	   can have it return a description string that gets shown
 	   in the Admin Section page that contains the module.
-	  ---------------------------------------------------------*/
-	function GetAdminDescription()
-	{
-		return $this->Lang('admindescription');
-	}
+	   ---------------------------------------------------------*/
+	   function GetAdminDescription()
+	   {
+	   	return $this->Lang('admindescription');
+	   }
 
 
 	/*---------------------------------------------------------
@@ -200,36 +200,36 @@ class SecureLogin extends CMSModule
 	   
 	   Typically, you'll use some permission to set this
 	   (e.g., $this->CheckPermission('Some Permission'); )
-	  ---------------------------------------------------------*/
-	function VisibleToAdminUser()
-	{
-        return true;
-	}
-	
+	   ---------------------------------------------------------*/
+	   function VisibleToAdminUser()
+	   {
+	   	return true;
+	   }
+
 
 	/*---------------------------------------------------------
 	   CheckAccess()
 	   This wrapper function will check against the specified permission,
 	   and display an error page if the user doesn't have adequate permissions.
-	  ---------------------------------------------------------*/
-	function CheckAccess($perm = 'SecureLogin management')
-		{
-		return $this->CheckPermission($perm);
-		}
-	
+	   ---------------------------------------------------------*/
+	   function CheckAccess($perm = 'SecureLogin management')
+	   {
+	   	return $this->CheckPermission($perm);
+	   }
+
 	/*---------------------------------------------------------
 	   DisplayErrorPage()
 	   This is a simple function for generating error pages.
-	  ---------------------------------------------------------*/
-    function DisplayErrorPage($id, &$params, $return_id, $message='')
-    {
-		$this->smarty->assign('title_error', $this->Lang('error'));
-		$this->smarty->assign_by_ref('message', $message);
+	   ---------------------------------------------------------*/
+	   function DisplayErrorPage($id, &$params, $return_id, $message='')
+	   {
+	   	$this->smarty->assign('title_error', $this->Lang('error'));
+	   	$this->smarty->assign_by_ref('message', $message);
 
         // Display the populated template
-        echo $this->ProcessTemplate('error.tpl');
-    }
-	
+	   	echo $this->ProcessTemplate('error.tpl');
+	   }
+
 
 
 	/*---------------------------------------------------------
@@ -241,11 +241,11 @@ class SecureLogin extends CMSModule
 	   
 	   It should return an hash, eg.
 	   return array('somemodule'=>'1.0', 'othermodule'=>'1.1');
-	  ---------------------------------------------------------*/
-	function GetDependencies()
-	{
-		return array('CMSMailer'=>'5.2.1');
-	}
+	   ---------------------------------------------------------*/
+	   function GetDependencies()
+	   {
+	   	return array('CMSMailer'=>'5.2.1');
+	   }
 
 	/*---------------------------------------------------------
 	   MinimumCMSVersion()
@@ -259,10 +259,10 @@ class SecureLogin extends CMSModule
 	   This method returns a string representing the
 	   minimum version that this module requires.
 	   ---------------------------------------------------------*/
-	function MinimumCMSVersion()
-	{
-		return "1.11.5";
-	}
+	   function MinimumCMSVersion()
+	   {
+	   	return "1.11.5";
+	   }
 
 
 	/*---------------------------------------------------------
@@ -281,10 +281,10 @@ class SecureLogin extends CMSModule
 	   This method returns a string representing the
 	   maximum version that this module supports.
 	   ---------------------------------------------------------*/
-	function MaximumCMSVersion()
-	{
-		return "1.11.5";
-	}
+	   function MaximumCMSVersion()
+	   {
+	   	return "1.11.5";
+	   }
 
 
 	/*---------------------------------------------------------
@@ -292,22 +292,22 @@ class SecureLogin extends CMSModule
 	   After installation, there may be things you want to
 	   communicate to your admin. This function returns a
 	   string which will be displayed.
-	  ---------------------------------------------------------*/
-	function InstallPostMessage()
-	{
-		return $this->Lang('postinstall');
-	}
+	   ---------------------------------------------------------*/
+	   function InstallPostMessage()
+	   {
+	   	return $this->Lang('postinstall');
+	   }
 
 	/*---------------------------------------------------------
 	   UninstallPostMessage()
 	   After removing a module, there may be things you want to
 	   communicate to your admin. This function returns a
 	   string which will be displayed.
-	  ---------------------------------------------------------*/
-	function UninstallPostMessage()
-	{
-		return $this->Lang('postuninstall');
-	}
+	   ---------------------------------------------------------*/
+	   function UninstallPostMessage()
+	   {
+	   	return $this->Lang('postuninstall');
+	   }
 
 
 
@@ -327,8 +327,10 @@ class SecureLogin extends CMSModule
 		return $this->Lang('really_uninstall');
 	}
 
-	function SetParameters() {
-		$this->addEventHandler('Core','LoginPost',false);
+
+	public function HandlesEvents()
+	{
+		return true;
 	}
 
 	private $_secureLogin;
@@ -341,5 +343,3 @@ class SecureLogin extends CMSModule
 	}
 	
 }
-
-?>

@@ -25,6 +25,7 @@ if (!isset($gCms)) exit;
 		$db->DropSequence( cms_db_prefix()."module_securelogin_seq" );
 		*/
 		
+		$this->RemoveEventHandler('Core','LoginPost');
 		// remove the permissions
 		$this->RemovePermission('SecureLogin management');
 

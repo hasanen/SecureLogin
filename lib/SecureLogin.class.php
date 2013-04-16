@@ -11,6 +11,16 @@ class SecureLogin{
   }
 
   public function userIsAllowedToLogin($username, $ip){
-    
+    $query = sprintf('SELECT id FROM %s WHERE username = ? AND ip = ? AND validated = 1', $this->_whitelistTable);
+    $result = $this->_db->Execute($query, array($username, $ip));
+    if($result && $result->FetchRow()){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function createValidationUrl($siteroot, $username, $ip){
+
   }
 }

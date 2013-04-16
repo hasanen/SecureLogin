@@ -38,7 +38,7 @@ if (!isset($gCms)) exit;
 		// create a sequence
 		$db->CreateSequence(cms_db_prefix()."module_securelogin_seq");
 		*/
-		
+		$this->addEventHandler('Core','LoginPost',false);	
 		// permissions
 		$this->CreatePermission('SecureLogin management','SecureLogin management');
 
