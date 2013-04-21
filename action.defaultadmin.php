@@ -19,6 +19,17 @@ if (! $this->CheckAccess())
 
 $userops = cmsms()->GetUserOperations();
 $user = $userops->LoadUserByID(get_userid());
+$current_ip = $_SERVER['SERVER_ADDR'];
+
+$validate_id = isset($params['validate_id']) ? $params['validate_id'] : '';
+if(!empty($validate_id)){
+	$this->secureLogin()->updateValidateStatus($validate_id, true);
+}
+$invalidate_id = isset($params['invalidate_id']) ? $params['invalidate_id'] : '';
+if(!empty($invalidate_id)){
+	$this->secureLogin()->updateValidateStatus($invalidate_id, false);
+}
+
 $rows = $this->secureLogin()->getAllIps();
 $current = null;
 $entries = array();
@@ -29,9 +40,12 @@ foreach ($rows as $key => $row) {
 	$entry->ip = $row['ip'];
 	$entry->for_all = $row['for_all'];
 	$entry->validated = $row['validated'] == 1 ? 'valid' : 'invalid';
+	$entry->validationAction = $row['validated'] == 0 ?
+	$this->CreateLink($id, 'defaultadmin', '', $this->Lang('validate'), array('validate_id' => $row['id'])): 
+	$this->CreateLink($id, 'defaultadmin', '', $this->Lang('invalidate'), array('invalidate_id' => $row['id']));
 
 	if($user->username == $row['username'] &&
-		$_SERVER['SERVER_ADDR'] == $row['ip']){
+		$current_ip == $row['ip']){
 		$current = $entry;
 	} else {
 		array_push($entries, $entry);
@@ -41,6 +55,7 @@ foreach ($rows as $key => $row) {
 $this->smarty->assign('caption_username', $this->Lang('username'));
 $this->smarty->assign('caption_ip', $this->Lang('ip'));
 $this->smarty->assign('caption_current', $this->Lang('current_user'));
+$this->smarty->assign('caption_actions', $this->Lang('actions'));
 $this->smarty->assign('entries', $entries);
 $this->smarty->assign('current', $current);
 

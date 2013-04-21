@@ -31,9 +31,12 @@ $lang['help'] = '<h3>What Does This Do?</h3>
 <p>Copyright &copy; 2013, Joni Hasanen <a href="mailto:joni@hasanen.net">&lt;joni@hasanen.net&gt;</a>. All Rights Are Reserved.</p>
 <p>This module has been released under the <a href="http://www.gnu.org/licenses/licenses.html#GPL">GNU Public License</a>. You must agree to this license before using the module.</p>';
 
+$lang['actions'] = 'Actions';
 $lang['username'] = 'Username';
 $lang['ip'] = 'IP';
 $lang['current_user'] = 'Current user';
+$lang['validate'] = sprintf('Validate %s', $lang['ip']);
+$lang['invalidate'] = sprintf('Invalidate %s', $lang['ip']);
 $lang['email.subject'] = 'Login from unauthorized ip';
 $lang['email.body'] = 'Hi!
 

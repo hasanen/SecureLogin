@@ -54,4 +54,9 @@ class SecureLogin{
     }
     return $entries;
   }
+
+  public function updateValidateStatus($id, $valid){
+    $query = 'UPDATE '. $this->_whitelistTable . ' SET validated = ? WHERE id = ?';
+    $this->_db->Execute($query, array($valid ? 1 : 0, $id));
+  }
 }

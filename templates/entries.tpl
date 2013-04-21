@@ -6,9 +6,12 @@
 	.pagetable tr.invalid {
 		background-color: #B51215;
 	}
-	.pagetable td.current {
+	.pagetable th.current {
 		width: 100px;
 		font-weight:bold;
+	}
+	.pagetable th.action {
+		width: 100px;
 	}
 	table.pagetable td{		
 		color:black;
@@ -17,14 +20,14 @@
 {/literal}
 <table class="pagetable"  style="width:100%" >
   <tr>
-    <th></th>
+    <th class="current"></th>
     <th>{$caption_username}</th>
     <th>{$caption_ip}</th>
-    <th></th>
+    <th class="action">{$caption_actions}</th>
   </tr>
 {if isset($current)}
 <tr class = "current {$current->validated}">
-    <td class="current">{$caption_current}</td>
+    <td>{$caption_current}</td>
     <td>{$current->username}</td>
     <td>{$current->ip}</td>
     <td></td>
@@ -36,7 +39,7 @@
     <td></td>
     <td>{$entry->username}</td>
     <td>{$entry->ip}</td>
-    <td></td>
+    <td>{$entry->validationAction}</td>
 </tr>
  {/foreach}
 {/if}
