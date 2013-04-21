@@ -30,4 +30,11 @@ $lang['help'] = '<h3>What Does This Do?</h3>
 <h3>Copyright and License</h3>
 <p>Copyright &copy; 2013, Joni Hasanen <a href="mailto:joni@hasanen.net">&lt;joni@hasanen.net&gt;</a>. All Rights Are Reserved.</p>
 <p>This module has been released under the <a href="http://www.gnu.org/licenses/licenses.html#GPL">GNU Public License</a>. You must agree to this license before using the module.</p>';
-?>
+
+
+$lang['email.subject'] = 'Login from unauthorized ip';
+$lang['email.body'] = 'Hi!
+
+It looks like you have been trying to login from unauthorized computer. If it was you, how tried to log in, please click following link: %s. 
+
+If you haven\'t tried to log in, it would be good to change your password immediately!';
