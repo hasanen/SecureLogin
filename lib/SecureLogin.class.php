@@ -59,4 +59,10 @@ class SecureLogin{
     $query = 'UPDATE '. $this->_whitelistTable . ' SET validated = ? WHERE id = ?';
     $this->_db->Execute($query, array($valid ? 1 : 0, $id));
   }
+
+  public function validateKey($key, $ip, $username){
+    $query = 'UPDATE '. $this->_whitelistTable . ' SET validated = 1 WHERE 
+    validateWithKey = ? AND ip = ? AND username = ?';
+    $this->_db->Execute($query, array($key, $ip, $username));
+  }
 }

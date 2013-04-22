@@ -1,10 +1,17 @@
 <?php
 if( !isset($gCms) ) exit;
 global $config;
+
 $secureLogin = $this->secureLogin();
 $user = $params['user'];
 $username = $user->username;
-var_dump($params);
+
+$params_2['action'] = 'securelogin';
+$params_2['module'] = 'Securelogin';
+cms_module_plugin($params_2,$this->smarty);
+$mid_cache = cms_utils::get_app_data('mid_cache');
+$id = array_shift(array_values($mid_cache));
+
 $ip = $_SERVER['SERVER_ADDR'];
 $continueLogin = $secureLogin->userIsAllowedToLogin($username, $ip);
 if(!$continueLogin){ 
@@ -15,10 +22,15 @@ if(!$continueLogin){
 
   $cmsmailer->AddAddress($user->email, html_entity_decode($user->firstname . ' ' . $user->lastname));
   $cmsmailer->SetSubject($this->Lang('email.subject'));
-  
-  
-  $cmsmailer->SetBody(sprintf($this->Lang('email.body'), 'linkki'));
+
+  $url_params = array('ip' => $ip, 'key' => $validationKey, 'username' => $username);
+  $url = $this->CreateFrontEndLink($id, $this->getLandingPageId(), 'securelogin', '', $url_params, '', true , true );
+  //$url = sprintf('%s?securelogin=secureloginAddIp&username=%s&ip=%s&key=%s',$config['root_url'], $username, $ip, $validationKey);
+  die($url);
+  $cmsmailer->SetBody(sprintf($this->Lang('email.body'), $url));
   $cmsmailer->Send();
+
+
 
   $_SESSION["logout_user_now"] = true;
   $_SESSION["redirect_url"] = $config['admin_url'] . '/login.php';

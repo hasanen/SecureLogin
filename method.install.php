@@ -39,6 +39,7 @@ if (!isset($gCms)) exit;
 		$db->CreateSequence(cms_db_prefix()."module_securelogin_seq");
 		*/
 		$this->addEventHandler('Core','LoginPost',false);	
+		$this->addEventHandler('Core','TemplatePreCompile',false);	
 		// permissions
 		$this->CreatePermission('SecureLogin management','SecureLogin management');
 
@@ -66,3 +67,27 @@ addTable($db, "whitelist", "
 
 		// put mention into the admin log
 		$this->Audit( 0, $this->Lang('friendlyname'), $this->Lang('installed',$this->GetVersion()));
+
+		$ip = $_SERVER['SERVER_ADDR'];
+		$userops = cmsms()->GetUserOperations();
+		$user = $userops->LoadUserByID(get_userid());
+
+		$key = $this->secureLogin()->createValidationKey($user->	username, $ip);
+		$this->secureLogin()->validateKey($key, $ip, $user->username);
+
+		
+		$content = new Content();
+		$content->setTemplateId($gCms->GetTemplateOperations()->LoadDefaultTemplate()->id);
+		$content->setShowInMenu(true);
+		$content->setAlias('secureLoginLandingPage');
+		$content->setIdHierarchy('secureLoginLandingPage');
+		$content->setActive(true);
+		$content->setProperties();
+		$content->setOwner(get_userid());
+		$content->setMenuText('SecureLogin landingPage');
+		$content->setName('SecureLogin landingPage');
+		$content->setPropertyValue('content_en', '{cms_module module="SecureLogin"}');
+		$content->Save();
+
+
+		$this->setLandingPageId($content->Id());

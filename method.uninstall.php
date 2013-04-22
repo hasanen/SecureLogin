@@ -43,3 +43,12 @@ if (!isset($gCms)) exit;
 
 		// put mention into the admin log
 		$this->Audit( 0, $this->Lang('friendlyname'), $this->Lang('uninstalled'));
+
+ 		cms_route_manager::del_static('',$this->GetName());
+
+$templateops =& $gCms->GetTemplateOperations();
+$contentops =& $gCms->GetContentOperations();
+ 		$templateops->DeleteTemplateById(cms_siteprefs::get('SecureLoginTemplateId'));
+		$contentops->LoadContentFromId($this->getLandingPageId())->Delete();
+ 		cms_siteprefs::remove('SecureLoginTemplateId');
+		cms_siteprefs::remove('SecureLoginLangingPageId');

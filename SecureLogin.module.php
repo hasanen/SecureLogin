@@ -283,7 +283,7 @@ class SecureLogin extends CMSModule
 	   ---------------------------------------------------------*/
 	   function MaximumCMSVersion()
 	   {
-	   	return "1.11.5";
+	   	return "1.11.6";
 	   }
 
 
@@ -327,12 +327,6 @@ class SecureLogin extends CMSModule
 		return $this->Lang('really_uninstall');
 	}
 
-
-	public function HandlesEvents()
-	{
-		return true;
-	}
-
 	private $_secureLogin;
 
 	function secureLogin(){
@@ -341,5 +335,15 @@ class SecureLogin extends CMSModule
 		}
 		return $this->_secureLogin;
 	}
+
+	public function setLandingpageId($id){		
+		cms_siteprefs::set('SecureLoginLandingPageId', $id);
+	}
+	public function getLandingPageId(){
+		return cms_siteprefs::get('SecureLoginLandingPageId');
+	}
 	
+	function InitializeFrontend()
+	{
+	}
 }
