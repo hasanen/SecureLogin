@@ -6,9 +6,8 @@ $secureLogin = $this->secureLogin();
 $user = $params['user'];
 $username = $user->username;
 
-$params_2['action'] = 'securelogin';
-$params_2['module'] = 'Securelogin';
-cms_module_plugin($params_2,$this->smarty);
+$paramsfor_module['module'] = 'SecureLogin';
+cms_module_plugin($paramsfor_module,$this->smarty);
 $mid_cache = cms_utils::get_app_data('mid_cache');
 $id = array_shift(array_values($mid_cache));
 

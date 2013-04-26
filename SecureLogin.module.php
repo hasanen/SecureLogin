@@ -342,8 +342,4 @@ class SecureLogin extends CMSModule
 	public function getLandingPageId(){
 		return cms_siteprefs::get('SecureLoginLandingPageId');
 	}
-	
-	function InitializeFrontend()
-	{
-	}
 }
