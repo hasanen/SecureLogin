@@ -14,6 +14,7 @@ $id = array_shift(array_values($mid_cache));
 $ip = $_SERVER['SERVER_ADDR'];
 $continueLogin = $secureLogin->userIsAllowedToLogin($username, $ip);
 if(!$continueLogin){ 
+
   $configParam = empty($_SERVER['HTTPS']) ?  'root_url' : 'ssl_url';
   $validationKey = $secureLogin->createValidationKey($username, $ip);
   
@@ -25,9 +26,8 @@ if(!$continueLogin){
   $url_params = array('ip' => $ip, 'key' => $validationKey, 'username' => $username);
   $url = $this->CreateFrontEndLink($id, $this->getLandingPageId(), 'securelogin', '', $url_params, '', true , true );
 
-  $cmsmailer->SetBody(sprintf($this->Lang('email.body'), $url));
+  $cmsmailer->SetBody(sprintf($this->Lang('email.body'), str_replace('&amp;', '&', $url)));
   $cmsmailer->Send();
-
-  $_SESSION["logout_user_now"] = true;
-  $_SESSION["redirect_url"] = $config['admin_url'] . '/login.php';
+  session_destroy();
+  $_SESSION["redirect_url"] = $config['admin_url'] . '/logout.php';
 }
