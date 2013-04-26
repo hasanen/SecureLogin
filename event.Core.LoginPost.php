@@ -24,12 +24,9 @@ if(!$continueLogin){
 
   $url_params = array('ip' => $ip, 'key' => $validationKey, 'username' => $username);
   $url = $this->CreateFrontEndLink($id, $this->getLandingPageId(), 'securelogin', '', $url_params, '', true , true );
-  //$url = sprintf('%s?securelogin=secureloginAddIp&username=%s&ip=%s&key=%s',$config['root_url'], $username, $ip, $validationKey);
-  die($url);
+
   $cmsmailer->SetBody(sprintf($this->Lang('email.body'), $url));
   $cmsmailer->Send();
-
-
 
   $_SESSION["logout_user_now"] = true;
   $_SESSION["redirect_url"] = $config['admin_url'] . '/login.php';
