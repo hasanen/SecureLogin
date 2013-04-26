@@ -107,7 +107,7 @@ class SecureLogin extends CMSModule
 	   ---------------------------------------------------------*/
 	   function GetAuthorEmail()
 	   {
-	   	return 'joni@hasanen.net';
+	   	return 'joni.hasanen@pieceofcode.net';
 	   }
 
 	/*---------------------------------------------------------

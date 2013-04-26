@@ -1,34 +1,31 @@
 <?php
 $lang['friendlyname'] = 'Secure login';
-$lang['postinstall'] = 'Post Install Message.';
-$lang['postuninstall'] = 'Post Uninstall Message, e.g., "Curses! Foiled Again!"';
 $lang['really_uninstall'] = 'Really? Are you sure
-you want to unsinstall this fine module?';
+you want to uninstall this fine module?';
 $lang['uninstalled'] = 'Module Uninstalled.';
+$lang['postuninstall'] = $lang['uninstalled'];
 $lang['installed'] = 'Module version %s installed.';
 $lang['upgraded'] = 'Module upgraded to version %s.';
 $lang['moddescription'] = 'Module secures login process with ip-whitelist. When user is logging in module will check if his/hers ip is in the whitelist. If not, user will get an email with link, which adds user\'s ip in the list after click.    Helps especially if user lost his credentials, attacker will not be able to login because of ip check.';
 
 $lang['error'] = 'Error!';
 $land['admin_title'] = 'Secure login Admin Panel';
-$lang['admindescription'] = 'admin description';
+$lang['admindescription'] = $lang['moddescription'];
 $lang['accessdenied'] = 'Access Denied. Please check your permissions.';
-$lang['postinstall'] = 'Post Install Message, (e.g., Be sure to set "SecureLogin management" permissions to use this module!)';
+$lang['postinstall'] = 'Be sure to set "SecureLogin management" permissions to use this module!';
 
 
 $lang['changelog'] = '<ul>
-<li>Version 1.0 - 14 April 2013. Initial Release.</li>
+<li>Version 1.0 beta- 27 April 2013. Releasing first beta.</li>
 </ul>';
 $lang['help'] = '<h3>What Does This Do?</h3>
 <p>Module secures login process with ip-whitelist. When user is logging in module will check if his/hers ip is in the whitelist. If not, user will get an email with link, which adds user\'s ip in the list after click.    Helps especially if user lost his credentials, attacker will not be able to login because of ip check.</p>
 <h3>How Do I Use It</h3>
-<p>[FIX-ME!]</p>
-<h3>What Parameters Does It Take</h3>
-<p>[FIX-ME!]</p>
+<p>All you need to do is to install module. After someone has tried to log in from new ip, you can approve it manually from management page under "Site Admin".</p>
 <h3>Support</h3>
 <p>As per the GPL, this software is provided as-is. Please read the text of the license for the full disclaimer.</p>
 <h3>Copyright and License</h3>
-<p>Copyright &copy; 2013, Joni Hasanen <a href="mailto:joni@hasanen.net">&lt;joni@hasanen.net&gt;</a>. All Rights Are Reserved.</p>
+<p>Copyright &copy; 2013, Joni Hasanen <a href="mailto:joni.hasanen@pieceofcode.net">&lt;joni.hasanen@pieceofcode.net&gt;</a>. All Rights Are Reserved.</p>
 <p>This module has been released under the <a href="http://www.gnu.org/licenses/licenses.html#GPL">GNU Public License</a>. You must agree to this license before using the module.</p>';
 
 $lang['actions'] = 'Actions';
@@ -40,6 +37,8 @@ $lang['invalidate'] = sprintf('Invalidate %s', $lang['ip']);
 $lang['email.subject'] = 'Login from unauthorized ip';
 $lang['email.body'] = 'Hi!
 
-It looks like you have been trying to login from unauthorized computer. If it was you, how tried to log in, please click following link: %s. 
+It looks like you have been trying to login from unauthorized ip-address. Please click following link to approve ip-address: %s. 
 
-If you haven\'t tried to log in, it would be good to change your password immediately!';
+If you haven\'t tried to log in, it would be good to change your password immediately!
+
+This is automatic message and it needs no response.';
