@@ -327,6 +327,14 @@ class SecureLogin extends CMSModule
 		return $this->Lang('really_uninstall');
 	}
 
+	public function InitializeFrontend()
+	{
+		$this->RestrictUnknownParams();
+
+		$this->SetParameterType('ip',CLEAN_STRING);
+		$this->SetParameterType('username',CLEAN_STRING);
+		$this->SetParameterType('key',CLEAN_STRING);
+	}
 	private $_secureLogin;
 
 	function secureLogin(){
