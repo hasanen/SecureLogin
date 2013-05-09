@@ -74,7 +74,10 @@ addTable($db, "whitelist", "
 		$key = $this->secureLogin()->createValidationKey($user->	username, $ip);
 		$this->secureLogin()->validateKey($key, $ip, $user->username);
 
-		
+		// Fixing issue #9226 http://dev.cmsmadesimple.org/bug/view/9226
+		if(!class_exists("Content")){
+			require_once(str_replace('//', '/', $config['root_path'] . '/lib/classes/contenttypes/Content.inc.php'));
+		}
 		$content = new Content();
 		$content->setTemplateId($gCms->GetTemplateOperations()->LoadDefaultTemplate()->id);
 		$content->setShowInMenu(true);

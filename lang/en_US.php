@@ -16,6 +16,8 @@ $lang['postinstall'] = 'Be sure to set "SecureLogin management" permissions to u
 
 
 $lang['changelog'] = '<ul>
+<li>Version 1.0 beta3- 09 May 2013. Releasing third beta.</li>
+<li>Version 1.0 beta2- 09 May 2013. Releasing second beta.</li>
 <li>Version 1.0 beta- 27 April 2013. Releasing first beta.</li>
 </ul>';
 $lang['help'] = '<h3>What Does This Do?</h3>

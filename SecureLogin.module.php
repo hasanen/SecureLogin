@@ -76,7 +76,7 @@ class SecureLogin extends CMSModule
 	   ---------------------------------------------------------*/
 	   function GetVersion()
 	   {
-	   	return '1.0 beta2';
+	   	return '1.0 beta3';
 	   }
 
 	/*---------------------------------------------------------
