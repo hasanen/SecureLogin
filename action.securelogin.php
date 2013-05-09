@@ -4,7 +4,7 @@ global $config;
 
 $regexp_string = "/\A[\w]*\Z/";
 
-$real_ip = $_SERVER['SERVER_ADDR'];
+$real_ip = $_SERVER['REMOTE_ADDR'];
 $ip = $params['ip'];
 $user = $params['username'];
 $key = $params['key'];

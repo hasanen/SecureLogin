@@ -19,7 +19,7 @@ if (! $this->CheckAccess())
 
 $userops = cmsms()->GetUserOperations();
 $user = $userops->LoadUserByID(get_userid());
-$current_ip = $_SERVER['SERVER_ADDR'];
+$current_ip = $_SERVER['REMOTE_ADDR'];
 
 $validate_id = isset($params['validate_id']) ? $params['validate_id'] : '';
 if(!empty($validate_id)){

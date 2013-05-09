@@ -67,7 +67,7 @@ addTable($db, "whitelist", "
 		// put mention into the admin log
 		$this->Audit( 0, $this->Lang('friendlyname'), $this->Lang('installed',$this->GetVersion()));
 
-		$ip = $_SERVER['SERVER_ADDR'];
+		$ip = $_SERVER['REMOTE_ADDR'];
 		$userops = cmsms()->GetUserOperations();
 		$user = $userops->LoadUserByID(get_userid());
 
