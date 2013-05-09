@@ -41,6 +41,10 @@ require_once('lib/SecureLogin.class.php');
 class SecureLogin extends CMSModule
 {
 
+	function __construct(){
+		parent::__construct();
+	}
+
 	function GetName()
 	{
 		return 'SecureLogin';
@@ -72,7 +76,7 @@ class SecureLogin extends CMSModule
 	   ---------------------------------------------------------*/
 	   function GetVersion()
 	   {
-	   	return '1.0 beta';
+	   	return '1.0 beta2';
 	   }
 
 	/*---------------------------------------------------------
@@ -327,9 +331,10 @@ class SecureLogin extends CMSModule
 		return $this->Lang('really_uninstall');
 	}
 
-	public function InitializeFrontend()
+	function InitializeFrontend()
 	{
-		$this->RestrictUnknownParams();
+		$this->RegisterModulePlugin();
+-		$this->RestrictUnknownParams();
 
 		$this->SetParameterType('ip',CLEAN_STRING);
 		$this->SetParameterType('username',CLEAN_STRING);
