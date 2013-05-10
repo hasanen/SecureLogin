@@ -11,13 +11,13 @@ cms_module_plugin($paramsfor_module,$this->smarty);
 $mid_cache = cms_utils::get_app_data('mid_cache');
 $id = array_shift(array_values($mid_cache));
 
-$ip = $_SERVER['SERVER_ADDR'];
+$ip = $_SERVER['REMOTE_ADDR'];
 $continueLogin = $secureLogin->userIsAllowedToLogin($username, $ip);
-if(!$continueLogin){ 
+if(!$continueLogin){
 
   $configParam = empty($_SERVER['HTTPS']) ?  'root_url' : 'ssl_url';
   $validationKey = $secureLogin->createValidationKey($username, $ip);
-  
+
   $cmsmailer =& CMSModule::GetModuleInstance('CMSMailer');
 
   $cmsmailer->AddAddress($user->email, html_entity_decode($user->firstname . ' ' . $user->lastname));

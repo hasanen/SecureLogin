@@ -16,6 +16,7 @@ $lang['postinstall'] = 'Be sure to set "SecureLogin management" permissions to u
 
 
 $lang['changelog'] = '<ul>
+<li>Version 1.0 beta4- 10 May 2013. Releasing fourth beta.</li>
 <li>Version 1.0 beta3- 09 May 2013. Releasing third beta.</li>
 <li>Version 1.0 beta2- 09 May 2013. Releasing second beta.</li>
 <li>Version 1.0 beta- 27 April 2013. Releasing first beta.</li>
@@ -39,7 +40,7 @@ $lang['invalidate'] = sprintf('Invalidate %s', $lang['ip']);
 $lang['email.subject'] = 'Login from unauthorized ip';
 $lang['email.body'] = 'Hi!
 
-It looks like you have been trying to login from unauthorized ip-address. Please click following link to approve ip-address: %s. 
+It looks like you have been trying to login from unauthorized ip-address. Please click following link to approve ip-address: %s.
 
 If you haven\'t tried to log in, it would be good to change your password immediately!
 

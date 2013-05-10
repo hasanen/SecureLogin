@@ -8,7 +8,7 @@
 # This project's homepage is: http://www.cmsmadesimple.org
 #
 # This file originally created by ModuleMaker module, version 0.3.2
-# Copyright (c) 2013 by Samuel Goldstein (sjg@cmsmadesimple.org) 
+# Copyright (c) 2013 by Samuel Goldstein (sjg@cmsmadesimple.org)
 #
 #-------------------------------------------------------------------------
 #
@@ -56,7 +56,7 @@ class SecureLogin extends CMSModule
 	   of the module. This is the name that's shown in the
 	   Admin Menus and section pages (if the module has an admin
 	   component).
-	   
+
 	   See the note on localization at the top of this file.
 	   ---------------------------------------------------------*/
 	   function GetFriendlyName()
@@ -72,11 +72,11 @@ class SecureLogin extends CMSModule
 	   The CMS will use this to identify whether or not
 	   the installed version of the module is current, and
 	   the module will use it to figure out how to upgrade
-	   itself if requested.	   
+	   itself if requested.
 	   ---------------------------------------------------------*/
 	   function GetVersion()
 	   {
-	   	return '1.0 beta3';
+	   	return '1.0 beta4';
 	   }
 
 	/*---------------------------------------------------------
@@ -84,7 +84,7 @@ class SecureLogin extends CMSModule
 	   This returns HTML information on the module.
 	   Typically, you'll want to include information on how to
 	   use the module.
-	   
+
 	   See the note on localization at the top of this file.
 	   ---------------------------------------------------------*/
 	   function GetHelp()
@@ -132,7 +132,7 @@ class SecureLogin extends CMSModule
 	   whether users can include the module in a page or
 	   template using a smarty tag of the form
 	   {cms_module module='SecureLogin' param1=val param2=val...}
-	   
+
 	   If your module does not get included in pages or
 	   templates, return "false" here.
 	   ---------------------------------------------------------*/
@@ -170,7 +170,7 @@ class SecureLogin extends CMSModule
 	   siteadmin   - the Site Admin menu
 	   viewsite    - the View Site menu tab
 	   logout      - the Logout menu tab
-	   
+
 	   Note that if you place your module in the main,
 	   viewsite, or logout sections, it will show up in the
 	   menus, but will not be visible in any top-level
@@ -201,7 +201,7 @@ class SecureLogin extends CMSModule
 	   that is returned by this method. This is primarily used
 	   to hide modules from admins who lack permission to use
 	   them.
-	   
+
 	   Typically, you'll use some permission to set this
 	   (e.g., $this->CheckPermission('Some Permission'); )
 	   ---------------------------------------------------------*/
@@ -242,7 +242,7 @@ class SecureLogin extends CMSModule
 	   before you can install it.
 	   This method returns a list of those dependencies and
 	   minimum version numbers that this module requires.
-	   
+
 	   It should return an hash, eg.
 	   return array('somemodule'=>'1.0', 'othermodule'=>'1.1');
 	   ---------------------------------------------------------*/
@@ -259,7 +259,7 @@ class SecureLogin extends CMSModule
 	   CMS MS version is required for your module, which will
 	   prevent it from being installed by a version of CMS that
 	   can't run it.
-	   
+
 	   This method returns a string representing the
 	   minimum version that this module requires.
 	   ---------------------------------------------------------*/
@@ -275,13 +275,13 @@ class SecureLogin extends CMSModule
 	   future versions of CMS Made Simple, especially if you
 	   think API features you use may change -- after all, you
 	   never really know how the CMS MS API could evolve.
-	   
+
 	   So, to prevent people from flooding you with bug reports
 	   when a new version of CMS MS is released, you can simply
 	   restrict the version. Then, of course, the onus is on you
 	   to release a new version of your module when a new version
 	   of the CMS is released...
-	   
+
 	   This method returns a string representing the
 	   maximum version that this module supports.
 	   ---------------------------------------------------------*/
@@ -349,7 +349,7 @@ class SecureLogin extends CMSModule
 		return $this->_secureLogin;
 	}
 
-	public function setLandingpageId($id){		
+	public function setLandingpageId($id){
 		cms_siteprefs::set('SecureLoginLandingPageId', $id);
 	}
 	public function getLandingPageId(){
