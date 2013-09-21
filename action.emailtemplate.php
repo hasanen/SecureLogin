@@ -6,6 +6,9 @@ if (! $this->CheckAccess())
   return $this->DisplayErrorPage($id, $params, $returnid,$this->Lang('accessdenied'));
   }
 
+if(isset($params['cancel']) || isset($params['apply'])){
+  $this->Redirect($id, 'defaultadmin');
+}
 $template = $this->Lang('email.template.default');
 
 
