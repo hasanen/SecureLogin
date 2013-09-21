@@ -5,11 +5,17 @@ if (! $this->CheckAccess())
   {
   return $this->DisplayErrorPage($id, $params, $returnid,$this->Lang('accessdenied'));
   }
-
-if(isset($params['cancel']) || isset($params['apply'])){
+if(isset($params['submit']) || isset($params['apply'])){
+  $this->SetPreference('email.template', $params['template']);
+}
+if(isset($params['cancel']) || isset($params['submit'])){
   $this->Redirect($id, 'defaultadmin');
 }
-$template = $this->Lang('email.template.default');
+
+$template = $this->GetPreference('email.template');
+if(empty($template)){
+  $template = $this->Lang('email.template.default');
+}
 
 
 
