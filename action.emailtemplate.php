@@ -20,6 +20,7 @@ $template = $this->GetPreference('email.template');
 
 $this->smarty->assign('title', $this->Lang('email.template.title'));
 $this->smarty->assign('variables', $this->Lang('email.template.variables'));
+$this->smarty->assign('hint', $this->Lang('email.template.hint'));
 
 $this->smarty->assign('form_start',$this->CreateFormStart($id, 'emailtemplate','','post',''));
 $this->smarty->assign('form_end',$this->CreateFormEnd());

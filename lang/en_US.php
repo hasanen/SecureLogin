@@ -54,3 +54,4 @@ You can use following variables in template:<br />
 $lang['email.template.submit'] = 'Submit';
 $lang['email.template.cancel'] = 'Cancel';
 $lang['email.template.apply'] = 'Apply';
+$lang['email.template.hint'] = '(For the default template, save template as empty)';

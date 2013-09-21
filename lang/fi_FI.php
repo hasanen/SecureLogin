@@ -52,3 +52,4 @@ Voit käyttää seuraavia muuttujia pohjassa:<br />
 $lang['email.template.submit'] = 'Lähetä';
 $lang['email.template.cancel'] = 'Peruuta';
 $lang['email.template.apply'] = 'Käytä';
+$lang['email.template.hint'] = '(Saadaksesi oletus pohjan, tallenna pohja tyhjänä)';
