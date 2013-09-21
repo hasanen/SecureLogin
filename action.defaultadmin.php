@@ -9,12 +9,12 @@ if (! $this->CheckAccess())
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
    Code for SecureLogin "defaultadmin" admin action
-   
+
    -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-   
+
    Typically, this will display something from a template
    or do some other task.
-   
+
 */
 
 $userops = cmsms()->GetUserOperations();
@@ -34,14 +34,14 @@ $rows = $this->secureLogin()->getAllIps();
 $current = null;
 $entries = array();
 foreach ($rows as $key => $row) {
-	$entry = new stdClass(); 
+	$entry = new stdClass();
 	$entry->id = $row['id'];
 	$entry->username = $row['username'];
 	$entry->ip = $row['ip'];
 	$entry->for_all = $row['for_all'];
 	$entry->validated = $row['validated'] == 1 ? 'valid' : 'invalid';
 	$entry->validationAction = $row['validated'] == 0 ?
-	$this->CreateLink($id, 'defaultadmin', '', $this->Lang('validate'), array('validate_id' => $row['id'])): 
+	$this->CreateLink($id, 'defaultadmin', '', $this->Lang('validate'), array('validate_id' => $row['id'])):
 	$this->CreateLink($id, 'defaultadmin', '', $this->Lang('invalidate'), array('invalidate_id' => $row['id']));
 
 	if($user->username == $row['username'] &&
@@ -52,6 +52,7 @@ foreach ($rows as $key => $row) {
 	}
 }
 
+$this->smarty->assign('emailtemplatelink', $this->CreateLink($id, 'emailtemplate', '', $this->Lang('email.template')));
 $this->smarty->assign('caption_username', $this->Lang('username'));
 $this->smarty->assign('caption_ip', $this->Lang('ip'));
 $this->smarty->assign('caption_current', $this->Lang('current_user'));

@@ -38,6 +38,7 @@ $lang['current_user'] = 'Current user';
 $lang['validate'] = sprintf('Validate %s', $lang['ip']);
 $lang['invalidate'] = sprintf('Invalidate %s', $lang['ip']);
 $lang['email.subject'] = 'Login from unauthorized ip';
+$lang['email.template'] = 'Email-template';
 $lang['email.body'] = 'Hi!
 
 It looks like you have been trying to login from unauthorized ip-address. Please click following link to approve ip-address: %s.

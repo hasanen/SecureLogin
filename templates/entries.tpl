@@ -13,11 +13,12 @@
 	.pagetable th.action {
 		width: 100px;
 	}
-	table.pagetable td{		
+	table.pagetable td{
 		color:black;
 	}
 </style>
 {/literal}
+<p>{$emailtemplatelink}</p>
 <table class="pagetable"  style="width:100%" >
   <tr>
     <th class="current"></th>
