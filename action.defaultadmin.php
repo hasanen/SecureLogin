@@ -52,7 +52,7 @@ foreach ($rows as $key => $row) {
 	}
 }
 
-$this->smarty->assign('emailtemplatelink', $this->CreateLink($id, 'emailtemplate', '', $this->Lang('email.template')));
+$this->smarty->assign('emailtemplatelink', $this->CreateLink($id, 'emailtemplate', '', $this->Lang('email.template.title')));
 $this->smarty->assign('caption_username', $this->Lang('username'));
 $this->smarty->assign('caption_ip', $this->Lang('ip'));
 $this->smarty->assign('caption_current', $this->Lang('current_user'));

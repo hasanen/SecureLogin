@@ -38,11 +38,19 @@ $lang['current_user'] = 'Current user';
 $lang['validate'] = sprintf('Validate %s', $lang['ip']);
 $lang['invalidate'] = sprintf('Invalidate %s', $lang['ip']);
 $lang['email.subject'] = 'Login from unauthorized ip';
-$lang['email.template'] = 'Email-template';
-$lang['email.body'] = 'Hi!
+$lang['email.template.title'] = 'Email-template';
+$lang['email.template.default'] = 'Hi!
 
-It looks like you have been trying to login from unauthorized ip-address. Please click following link to approve ip-address: %s.
+It looks like you have been trying to login from unauthorized ip-address. Please click following link to approve ip-address: [url].
 
 If you haven\'t tried to log in, it would be good to change your password immediately!
 
 This is automatic message and it needs no response.';
+$lang['email.template.variables'] = '
+You can use following variables in template:<br />
+<ul>
+<li>[url] = Url for approving IP-address</li>
+</ul>';
+$lang['email.template.submit'] = 'Submit';
+$lang['email.template.cancel'] = 'Cancel';
+$lang['email.template.apply'] = 'Apply';

@@ -36,10 +36,19 @@ $lang['current_user'] = 'Sisäänkirjautunut käyttäjä';
 $lang['validate'] = sprintf('Hyväksy %s', $lang['ip']);
 $lang['invalidate'] = sprintf('Estä %s', $lang['ip']);
 $lang['email.subject'] = 'Kirjautuminen tuntemattomasta ip-osoitteesta';
-$lang['email.body'] = 'Hei!
+$lang['email.template.title'] = 'Sähköposti-pohja';
+$lang['email.template.default'] = 'Hei!
 
-Näyttää siltä, että joku on yrittänyt kirjautua tuntemattomasta ip-osoitteesta. Vahvista ip-osoite menemällä seuraavaan osoitteeseen: %s. 
+Näyttää siltä, että joku on yrittänyt kirjautua tuntemattomasta ip-osoitteesta. Vahvista ip-osoite menemällä seuraavaan osoitteeseen: [url].
 
 Jos et yrittänyt kirjautua, on suositeltavaa vaihtaa salasana HETI!
 
 Tämä on automaattinen viesti eikä tähän tarvitse vastata';
+$lang['email.template.variables'] = '
+Voit käyttää seuraavia muuttujia pohjassa:<br />
+<ul>
+<li>[url] = Osoite, jolla IP-osoite hyväksytään</li>
+</ul>';
+$lang['email.template.submit'] = 'Lähetä';
+$lang['email.template.cancel'] = 'Peruuta';
+$lang['email.template.apply'] = 'Käytä';
