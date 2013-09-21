@@ -16,11 +16,11 @@ if (!isset($gCms)) exit;
 		switch($current_version)
 		{
 			case "1.0":
-			     break;
-			case "1.1":
+			case "1.0.1":
+					$this->SetPreference('email.template', $this->Lang('email.template.default'));
 			     break;
 		}
-		
+
 		// put mention into the admin log
 		$this->Audit( 0, $this->Lang('friendlyname'), $this->Lang('upgraded',$this->GetVersion()));
 

@@ -15,7 +15,7 @@ if (!isset($gCms)) exit;
 		/*
 		// Typical Database Removal
 		$db =& $gCms->GetDb();
-		
+
 		// remove the database table
 		$dict = NewDataDictionary( $db );
 		$sqlarray = $dict->DropTableSQL( cms_db_prefix()."module_securelogin" );
@@ -24,7 +24,7 @@ if (!isset($gCms)) exit;
 		// remove the sequence
 		$db->DropSequence( cms_db_prefix()."module_securelogin_seq" );
 		*/
-		
+
 		$this->RemoveEventHandler('Core','LoginPost');
 		// remove the permissions
 		$this->RemovePermission('SecureLogin management');
@@ -51,4 +51,5 @@ $contentops =& $gCms->GetContentOperations();
  		$templateops->DeleteTemplateById(cms_siteprefs::get('SecureLoginTemplateId'));
 		$contentops->LoadContentFromId($this->getLandingPageId())->Delete();
  		cms_siteprefs::remove('SecureLoginTemplateId');
+ 		cms_siteprefs::remove('email.template');
 		cms_siteprefs::remove('SecureLoginLangingPageId');

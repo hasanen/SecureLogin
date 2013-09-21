@@ -16,7 +16,7 @@ $lang['postinstall'] = 'Be sure to set "SecureLogin management" permissions to u
 
 
 $lang['changelog'] = '<ul>
-<li>Version 1.0 - 21 September 2013. First release.</li>
+<li>Version 1.0/1.0.1 - 21 September 2013. First release.</li>
 <li>Version 1.0 beta4 - 10 May 2013. Releasing fourth beta.</li>
 <li>Version 1.0 beta3 - 09 May 2013. Releasing third beta.</li>
 <li>Version 1.0 beta2 - 09 May 2013. Releasing second beta.</li>

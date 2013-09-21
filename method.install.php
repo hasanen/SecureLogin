@@ -7,11 +7,11 @@ if (!isset($gCms)) exit;
 	   setup. Typical things that happen here are the creation
 	   and prepopulation of database tables, database sequences,
 	   permissions, preferences, etc.
-	   	   
+
 	   For information on the creation of database tables,
 	   check out the ADODB Data Dictionary page at
 	   http://phplens.com/lens/adodb/docs-datadict.htm
-	   
+
 	   This function can return a string in case of any error,
 	   and CMS will not consider the module installed.
 	   Successful installs should return FALSE or nothing at all.
@@ -19,11 +19,11 @@ if (!isset($gCms)) exit;
 		/*
 		// Typical Database Initialization
 		$db =& $gCms->GetDb();
-		
+
 		// mysql-specific, but ignored by other database
 		$taboptarray = array('mysql' => 'TYPE=MyISAM');
 		$dict = NewDataDictionary($db);
-		
+
         // table schema description
         $flds = "
 			id I KEY,
@@ -38,7 +38,7 @@ if (!isset($gCms)) exit;
 		// create a sequence
 		$db->CreateSequence(cms_db_prefix()."module_securelogin_seq");
 		*/
-		$this->addEventHandler('Core','LoginPost',false);	
+		$this->addEventHandler('Core','LoginPost',false);
 		// permissions
 		$this->CreatePermission('SecureLogin management','SecureLogin management');
 
@@ -46,7 +46,7 @@ if (!isset($gCms)) exit;
 function addTable($db, $tableName, $flds){
 	$dict = NewDataDictionary($db);
 	$taboptarray = array('mysql' => 'TYPE=MyISAM');
-	$sqlarray = $dict->CreateTableSQL(sprintf("%smodule_securelogin_%s",cms_db_prefix(), $tableName), 
+	$sqlarray = $dict->CreateTableSQL(sprintf("%smodule_securelogin_%s",cms_db_prefix(), $tableName),
 		$flds, $taboptarray);
 	$dict->ExecuteSQLArray($sqlarray);
 	$db->CreateSequence(sprintf("%smodule_securelogin_%s_seq",cms_db_prefix(), $tableName));
@@ -55,7 +55,7 @@ function addTable($db, $tableName, $flds){
 $db = $this->GetDb();
 
 
-addTable($db, "whitelist", " 
+addTable($db, "whitelist", "
 		id I KEY,
 		username C(25),
 		ip C(15),
@@ -93,3 +93,5 @@ addTable($db, "whitelist", "
 
 
 		$this->setLandingPageId($content->Id());
+
+  $this->SetPreference('email.template', $this->Lang('email.template.default'));

@@ -15,7 +15,7 @@ $lang['postinstall'] = 'Käy asettamassa "SecureLogin management" oikeudet tarvi
 
 
 $lang['changelog'] = '<ul>
-<li>Versio 1.0 - 21 Syyskuu 2013. Ensimmäisen version julkaistu.</li>
+<li>Versio 1.0/1.0.1 - 21 Syyskuu 2013. Ensimmäisen version julkaistu.</li>
 <li>Versio 1.0 beta3 - 27 Toukokuu 2013. Kolmas beta julkaistu.</li>
 <li>Versio 1.0 beta2 - 27 Toukokuu 2013. Toinen beta julkaistu.</li>
 <li>Versio 1.0 beta - 27 Huhtikuu 2013. Ensimmäinen beta julkaistu.</li>
