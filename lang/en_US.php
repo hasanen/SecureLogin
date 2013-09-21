@@ -16,10 +16,11 @@ $lang['postinstall'] = 'Be sure to set "SecureLogin management" permissions to u
 
 
 $lang['changelog'] = '<ul>
-<li>Version 1.0 beta4- 10 May 2013. Releasing fourth beta.</li>
-<li>Version 1.0 beta3- 09 May 2013. Releasing third beta.</li>
-<li>Version 1.0 beta2- 09 May 2013. Releasing second beta.</li>
-<li>Version 1.0 beta- 27 April 2013. Releasing first beta.</li>
+<li>Version 1.0 - 21 September 2013. First release.</li>
+<li>Version 1.0 beta4 - 10 May 2013. Releasing fourth beta.</li>
+<li>Version 1.0 beta3 - 09 May 2013. Releasing third beta.</li>
+<li>Version 1.0 beta2 - 09 May 2013. Releasing second beta.</li>
+<li>Version 1.0 beta - 27 April 2013. Releasing first beta.</li>
 </ul>';
 $lang['help'] = '<h3>What Does This Do?</h3>
 <p>Module secures login process with ip-whitelist. When user is logging in module will check if his/hers ip is in the whitelist. If not, user will get an email with link, which adds user\'s ip in the list after click.    Helps especially if user lost his credentials, attacker will not be able to login because of ip check.</p>

@@ -76,7 +76,7 @@ class SecureLogin extends CMSModule
 	   ---------------------------------------------------------*/
 	   function GetVersion()
 	   {
-	   	return '1.0 beta4';
+	   	return '1.0';
 	   }
 
 	/*---------------------------------------------------------
@@ -285,10 +285,10 @@ class SecureLogin extends CMSModule
 	   This method returns a string representing the
 	   maximum version that this module supports.
 	   ---------------------------------------------------------*/
-	   function MaximumCMSVersion()
-	   {
-	   	return "1.11.6";
-	   }
+	   // function MaximumCMSVersion()
+	   // {
+	   // 	return "1.11.6";
+	   // }
 
 
 	/*---------------------------------------------------------
