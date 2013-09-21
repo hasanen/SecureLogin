@@ -25,8 +25,8 @@ if(!$continueLogin){
 
   $url_params = array('ip' => $ip, 'key' => $validationKey, 'username' => $username);
   $url = $this->CreateFrontEndLink($id, $this->getLandingPageId(), 'securelogin', '', $url_params, '', true , true );
-
-  $cmsmailer->SetBody(sprintf($this->Lang('email.body'), str_replace('&amp;', '&', $url)));
+  $email_body = str_replace('[url]', $url, $this->GetPreference('email.template'));
+  $cmsmailer->SetBody($email_body);
   $cmsmailer->Send();
   session_destroy();
   $_SESSION["redirect_url"] = $config['admin_url'] . '/logout.php';
