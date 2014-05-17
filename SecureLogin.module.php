@@ -349,11 +349,11 @@ class SecureLogin extends CMSModule
 		return $this->_secureLogin;
 	}
 
-	public function setLandingpageId($id){
-		cms_siteprefs::set('SecureLoginLandingPageId', $id);
+	public function setRedirectUrl($url){
+		cms_siteprefs::set('SecureLogin_redirctUrl', $url);
 	}
-	public function getLandingPageId(){
-		return cms_siteprefs::get('SecureLoginLandingPageId');
+	public function getRedirectUrl(){
+		return cms_siteprefs::get('SecureLogin_redirctUrl');
 	}
 	public function getUserID(){
 		return $_SERVER['REMOTE_ADDR'];

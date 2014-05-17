@@ -57,5 +57,10 @@ $lang['email.template.cancel'] = 'Cancel';
 $lang['email.template.apply'] = 'Apply';
 $lang['email.template.hint'] = '(For the default template, save template as empty)';
 
+$lang['save.succeed'] = 'Save succeed';
+
 $lang['tabtitle.iplist'] = 'List of addresses';
 $lang['tabtitle.settings'] = 'Settings';
+$lang['redirect.title'] = 'Redirect';
+$lang['redirect.submit'] = 'Save';
+$lang['redirect.description'] = 'Where user should be redirect after login from unknown address. Leave empty for default behaviour.';

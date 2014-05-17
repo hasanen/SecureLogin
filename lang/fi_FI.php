@@ -54,5 +54,12 @@ $lang['email.template.submit'] = 'Lähetä';
 $lang['email.template.cancel'] = 'Peruuta';
 $lang['email.template.apply'] = 'Käytä';
 $lang['email.template.hint'] = '(Saadaksesi oletus pohjan, tallenna pohja tyhjänä)';
+
+$lang['save.succeed'] = 'Tallennus onnistui';
+
+
 $lang['tabtitle.iplist'] = 'Osoitelista';
 $lang['tabtitle.settings'] = 'Asetukset';
+$lang['redirect.title'] = 'Uudelleenohjaus';
+$lang['redirect.submit'] = 'Tallenna';
+$lang['redirect.description'] = 'Mihin osoitteeseen käyttäjä ohjataan ensimmäistä kertaa tuntemattomasta osoitteesta kirjauduttaessa. Jätä tyhjäksi oletustoimintoa varten.';
