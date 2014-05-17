@@ -377,8 +377,4 @@ class SecureLogin extends CMSModule
 		$cmsmailer->SetBody($email_body);
 		$cmsmailer->Send();
 	}
-
-	public function shouldCustomInfoPageBeShown(){
-		return false;
-	}
 }

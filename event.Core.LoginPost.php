@@ -16,9 +16,10 @@ if(!$continueLogin){
   $this->sendEmail($ip, $user);
   session_destroy();
 
-  //tähän tarkistus, jos se oma viesti on niin ohjataan sinne temppiin
-  if($this->shouldCustomInfoPageBeShown()){
-
+  $redirectUrl = $this->getRedirectUrl();
+  if(!empty($redirectUrl)){
+    header(sprintf('Location: %s', $redirectUrl));
+    die();
   } else {
     $_SESSION["redirect_url"] = $config['admin_url'] . '/logout.php';
   }
