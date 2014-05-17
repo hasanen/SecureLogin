@@ -30,6 +30,24 @@ if(!empty($invalidate_id)){
 	$this->secureLogin()->updateValidateStatus($invalidate_id, false);
 }
 
+$tab = 'iplist';
+
+echo $this->StartTabHeaders().
+	$this->SetTabHeader('iplist',$this->Lang('tabtitle.iplist'), $tab == 'iplist' ? true : false).
+	$this->SetTabHeader('settings',$this->Lang('tabtitle.settings'), $tab == 'settings' ? true : false).
+	$this->EndTabHeaders().$this->StartTabContent();
+
+
+echo $this->StartTab('settings');
+$this->smarty->assign('emailtemplatelink', $this->CreateLink($id, 'emailtemplate', '', $this->Lang('email.template.title')));
+
+
+echo $this->ProcessTemplate('settings.tpl');
+echo $this->EndTab();
+echo $this->StartTab('iplist');
+
+
+
 $rows = $this->secureLogin()->getAllIps();
 $current = null;
 $entries = array();
@@ -52,7 +70,6 @@ foreach ($rows as $key => $row) {
 	}
 }
 
-$this->smarty->assign('emailtemplatelink', $this->CreateLink($id, 'emailtemplate', '', $this->Lang('email.template.title')));
 $this->smarty->assign('caption_username', $this->Lang('username'));
 $this->smarty->assign('caption_ip', $this->Lang('ip'));
 $this->smarty->assign('caption_current', $this->Lang('current_user'));
@@ -61,3 +78,4 @@ $this->smarty->assign('entries', $entries);
 $this->smarty->assign('current', $current);
 
 echo $this->ProcessTemplate('entries.tpl');
+echo $this->EndTab();

@@ -18,7 +18,6 @@
 	}
 </style>
 {/literal}
-<p>{$emailtemplatelink}</p>
 <table class="pagetable"  style="width:100%" >
   <tr>
     <th class="current"></th>
