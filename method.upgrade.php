@@ -18,7 +18,19 @@ if (!isset($gCms)) exit;
 			case "1.0":
 			case "1.0.1":
 					$this->SetPreference('email.template', $this->Lang('email.template.default'));
-			     break;
+					break;
+			case "1.1":
+					cms_route_manager::del_static('',$this->GetName());
+
+					$templateops =& $gCms->GetTemplateOperations();
+					$contentops =& $gCms->GetContentOperations();
+					$contentops->LoadContentFromId($this->getLandingPageId())->Delete();
+					cms_siteprefs::remove('SecureLoginTemplateId');
+					
+					//These are some old configs, removing just in case
+					$templateops->DeleteTemplateById(cms_siteprefs::get('SecureLoginTemplateId'));
+					cms_siteprefs::remove('SecureLoginLangingPageId');
+					break;
 		}
 
 		// put mention into the admin log

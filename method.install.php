@@ -71,27 +71,7 @@ addTable($db, "whitelist", "
 		$userops = cmsms()->GetUserOperations();
 		$user = $userops->LoadUserByID(get_userid());
 
-		$key = $this->secureLogin()->createValidationKey($user->	username, $ip);
+		$key = $this->secureLogin()->createValidationKey($user->username, $ip);
 		$this->secureLogin()->validateKey($key, $ip, $user->username);
 
-		// Fixing issue #9226 http://dev.cmsmadesimple.org/bug/view/9226
-		if(!class_exists("Content")){
-			require_once(str_replace('//', '/', $config['root_path'] . '/lib/classes/contenttypes/Content.inc.php'));
-		}
-		$content = new Content();
-		$content->setTemplateId($gCms->GetTemplateOperations()->LoadDefaultTemplate()->id);
-		$content->setShowInMenu(true);
-		$content->setAlias('secureLoginLandingPage');
-		$content->setIdHierarchy('secureLoginLandingPage');
-		$content->setActive(true);
-		$content->setProperties();
-		$content->setOwner(get_userid());
-		$content->setMenuText('SecureLogin landingPage');
-		$content->setName('SecureLogin landingPage');
-		$content->setPropertyValue('content_en', '{cms_module module="SecureLogin"}');
-		$content->Save();
-
-
-		$this->setLandingPageId($content->Id());
-
-  $this->SetPreference('email.template', $this->Lang('email.template.default'));
+  	$this->SetPreference('email.template', $this->Lang('email.template.default'));
