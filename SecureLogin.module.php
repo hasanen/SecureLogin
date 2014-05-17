@@ -359,9 +359,10 @@ class SecureLogin extends CMSModule
 		return $_SERVER['REMOTE_ADDR'];
 	}
 
-	public function sendEmail($id, $ip, $validationKey, $user){
+	public function sendEmail($ip, $user){
+		global $config;
 		$configParam = empty($_SERVER['HTTPS']) ?  'root_url' : 'ssl_url';
-		$validationKey = $secureLogin->createValidationKey($user->username, $ip);
+		$validationKey = $this->secureLogin()->createValidationKey($user->username, $ip);
 
 		$cmsmailer =& CMSModule::GetModuleInstance('CMSMailer');
 
@@ -369,7 +370,7 @@ class SecureLogin extends CMSModule
 		$cmsmailer->SetSubject($this->Lang('email.subject'));
 
 		$url_params = array('ip' => $ip, 'key' => $validationKey, 'username' => $user->username);
-		$url = $this->CreateFrontEndLink($id, $this->getLandingPageId(), 'securelogin', '', $url_params, '', true , true );
+		$url = sprintf('%s/tmp/secureLoginHandler.php?username=%s&ip=%s&key=%s', $config[$configParam], $user->username, $ip, $validationKey);
 
 		$email_body = str_replace('[url]', $url, $this->GetPreference('email.template'));
 

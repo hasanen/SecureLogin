@@ -75,3 +75,9 @@ addTable($db, "whitelist", "
 		$this->secureLogin()->validateKey($key, $ip, $user->username);
 
   	$this->SetPreference('email.template', $this->Lang('email.template.default'));
+
+
+		$config = cmsms()->GetConfig();
+		$src = sprintf('%s/modules/SecureLogin/templates/secureLoginHandler.php', $config['root_path']);
+		$dest = sprintf('%s/tmp/secureLoginHandler.php', $config['root_path']);
+		copy($src, $dest);

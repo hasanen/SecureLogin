@@ -45,3 +45,7 @@ if (!isset($gCms)) exit;
 		$this->Audit( 0, $this->Lang('friendlyname'), $this->Lang('uninstalled'));
 
  		cms_siteprefs::remove('email.template');
+
+		$config = cmsms()->GetConfig();
+		$slh = sprintf('%s/tmp/secureLoginHandler.php', $config['root_path']);
+		unlink($slh);
