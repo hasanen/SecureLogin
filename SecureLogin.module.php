@@ -355,4 +355,29 @@ class SecureLogin extends CMSModule
 	public function getLandingPageId(){
 		return cms_siteprefs::get('SecureLoginLandingPageId');
 	}
+	public function getUserID(){
+		return $_SERVER['REMOTE_ADDR'];
+	}
+
+	public function sendEmail($id, $ip, $validationKey, $user){
+		$configParam = empty($_SERVER['HTTPS']) ?  'root_url' : 'ssl_url';
+		$validationKey = $secureLogin->createValidationKey($user->username, $ip);
+
+		$cmsmailer =& CMSModule::GetModuleInstance('CMSMailer');
+
+		$cmsmailer->AddAddress($user->email, html_entity_decode($user->firstname . ' ' . $user->lastname));
+		$cmsmailer->SetSubject($this->Lang('email.subject'));
+
+		$url_params = array('ip' => $ip, 'key' => $validationKey, 'username' => $user->username);
+		$url = $this->CreateFrontEndLink($id, $this->getLandingPageId(), 'securelogin', '', $url_params, '', true , true );
+
+		$email_body = str_replace('[url]', $url, $this->GetPreference('email.template'));
+
+		$cmsmailer->SetBody($email_body);
+		$cmsmailer->Send();
+	}
+
+	public function shouldCustomInfoPageBeShown(){
+		return false;
+	}
 }

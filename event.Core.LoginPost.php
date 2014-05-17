@@ -11,23 +11,17 @@ cms_module_plugin($paramsfor_module,$this->smarty);
 $mid_cache = cms_utils::get_app_data('mid_cache');
 $id = array_shift(array_values($mid_cache));
 
-$ip = $_SERVER['REMOTE_ADDR'];
+$ip = $this->getUserID();
 $continueLogin = $secureLogin->userIsAllowedToLogin($username, $ip);
 if(!$continueLogin){
 
-  $configParam = empty($_SERVER['HTTPS']) ?  'root_url' : 'ssl_url';
-  $validationKey = $secureLogin->createValidationKey($username, $ip);
-
-  $cmsmailer =& CMSModule::GetModuleInstance('CMSMailer');
-
-  $cmsmailer->AddAddress($user->email, html_entity_decode($user->firstname . ' ' . $user->lastname));
-  $cmsmailer->SetSubject($this->Lang('email.subject'));
-
-  $url_params = array('ip' => $ip, 'key' => $validationKey, 'username' => $username);
-  $url = $this->CreateFrontEndLink($id, $this->getLandingPageId(), 'securelogin', '', $url_params, '', true , true );
-  $email_body = str_replace('[url]', $url, $this->GetPreference('email.template'));
-  $cmsmailer->SetBody($email_body);
-  $cmsmailer->Send();
+  $this->sendEmail($id, $ip, $validationKey, $user);
   session_destroy();
-  $_SESSION["redirect_url"] = $config['admin_url'] . '/logout.php';
+
+  //tähän tarkistus, jos se oma viesti on niin ohjataan sinne temppiin
+  if($this->shouldCustomInfoPageBeShown()){
+
+  } else {
+    $_SESSION["redirect_url"] = $config['admin_url'] . '/logout.php';
+  }
 }
