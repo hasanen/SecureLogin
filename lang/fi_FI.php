@@ -15,6 +15,7 @@ $lang['postinstall'] = 'Käy asettamassa "SecureLogin management" oikeudet tarvi
 
 
 $lang['changelog'] = '<ul>
+<li>Versio 1.1 - 18 Toukokuu 2014. Korjattu bugi http://dev.cmsmadesimple.org/bug/view/9629. Lisätty mahdollisuus käyttäjän uudelleenohjaamiseen ensimmäisen kirjautumisen yhteydessä.</li>
 <li>Versio 1.0/1.0.1 - 21 Syyskuu 2013. Ensimmäisen version julkaistu.</li>
 <li>Versio 1.0 beta3 - 27 Toukokuu 2013. Kolmas beta julkaistu.</li>
 <li>Versio 1.0 beta2 - 27 Toukokuu 2013. Toinen beta julkaistu.</li>
