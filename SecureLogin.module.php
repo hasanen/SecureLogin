@@ -377,4 +377,11 @@ class SecureLogin extends CMSModule
 		$cmsmailer->SetBody($email_body);
 		$cmsmailer->Send();
 	}
+
+	public function setLandingpageId($id){
+		cms_siteprefs::set('SecureLoginLandingPageId', $id);
+	}
+	public function getLandingPageId(){
+		return cms_siteprefs::get('SecureLoginLandingPageId');
+	}
 }
