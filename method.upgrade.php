@@ -26,11 +26,16 @@ if (!isset($gCms)) exit;
 					$contentops =& $gCms->GetContentOperations();
 					$contentops->LoadContentFromId($this->getLandingPageId())->Delete();
 					cms_siteprefs::remove('SecureLoginTemplateId');
-					
+
 					//These are some old configs, removing just in case
 					$templateops->DeleteTemplateById(cms_siteprefs::get('SecureLoginTemplateId'));
 					cms_siteprefs::remove('SecureLoginLangingPageId');
 					break;
+			case "1.1.1":
+					$config = cmsms()->GetConfig();
+					$src = sprintf('%s/modules/SecureLogin/templates/secureLoginHandler.php', $config['root_path']);
+					$dest = sprintf('%s/tmp/secureLoginHandler.php', $config['root_path']);
+					copy($src, $dest);
 		}
 
 		// put mention into the admin log

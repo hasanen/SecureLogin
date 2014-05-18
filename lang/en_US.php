@@ -16,6 +16,7 @@ $lang['postinstall'] = 'Be sure to set "SecureLogin management" permissions to u
 
 
 $lang['changelog'] = '<ul>
+<li>Version 1.1.1 - 18 May 2014. Updated upgrade process.</li>
 <li>Version 1.1 - 18 May 2014. Fixed bug http://dev.cmsmadesimple.org/bug/view/9629. Added possibility to redirect user after first login from unkown address.</li>
 <li>Version 1.0/1.0.1 - 21 September 2013. First release.</li>
 <li>Version 1.0 beta4 - 10 May 2013. Releasing fourth beta.</li>
